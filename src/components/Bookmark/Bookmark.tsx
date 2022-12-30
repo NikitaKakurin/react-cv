@@ -28,9 +28,7 @@ export default function Bookmark({ children, color, isActive }: IProps) {
     orange: 'bg-orange-500 text-white hover:bg-orange-600',
   };
   return (
-    <div
-      className={`cursor-pointer text-center ${colors[color]} write-mode-vertical w-[100px] px-2`}
-    >
+    <div className={`cursor-pointer text-center ${colors[color]} write-mode-vertical w-[100px]`}>
       {children}
     </div>
   );
