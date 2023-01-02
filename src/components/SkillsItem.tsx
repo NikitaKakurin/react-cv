@@ -11,7 +11,13 @@ export default function SkillsItem({ children, stars, isShow }: IProps) {
   const getStars = (stars: number): JSX.Element[] => {
     const arr: JSX.Element[] = [];
     for (let i = 1; i <= 5; i++) {
-      arr.push(i <= stars ? <AiFillStar color="yellow" /> : <AiOutlineStar color="yellow" />);
+      arr.push(
+        i <= stars ? (
+          <AiFillStar color="yellow" key={i} />
+        ) : (
+          <AiOutlineStar color="yellow" key={i} />
+        )
+      );
     }
     return arr;
   };
@@ -21,7 +27,7 @@ export default function SkillsItem({ children, stars, isShow }: IProps) {
       <div
         className={`${
           isShow ? 'max-h-full max-w-full' : 'max-h-0 max-w-0'
-        } group-hover:opacity-1 absolute bottom-9 left-0 flex max-h-0 w-full max-w-0 items-center justify-evenly rounded-md bg-gradient-to-b from-slate-900/50 via-slate-900/80 to-slate-900/50 duration-300 group-hover:max-h-full group-hover:max-w-full`}
+        } group-hover:opacity-1 absolute bottom-9 left-0 flex w-full items-center justify-evenly rounded-md bg-gradient-to-b from-slate-900/50 via-slate-900/80 to-slate-900/50 duration-300 group-hover:max-h-full group-hover:max-w-full`}
       >
         {getStars(stars)}
       </div>

@@ -10,10 +10,9 @@ export default function Skills() {
     const showTooltipInterval = setInterval(() => {
       setIndexShowTooltip(Math.floor(Math.random() * skillsCount));
     }, 3000);
-
-    // return () => {
-
-    // };
+    return () => {
+      clearInterval(showTooltipInterval);
+    };
   }, []);
 
   return (
