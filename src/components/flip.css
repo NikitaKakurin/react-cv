@@ -1,0 +1,13 @@
+.pages {
+  height: 100%;
+  width: 100%;
+}
+
+.page {
+  height: 100%;
+  width: 100%;
+}
+
+.page1, .page2 {
+  background-color: #EBD5B3;
+}

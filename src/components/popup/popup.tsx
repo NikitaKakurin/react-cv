@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useState, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './popup.css';
 
@@ -8,9 +8,11 @@ export default function Popup(props: {
   children: ReactNode;
 }) {
   const [innerAnim, setInnerAnim] = useState(false);
-
+  const outerRef = useRef(null);
+  const innerRef = useRef(null);
   return (
     <CSSTransition
+      nodeRef={outerRef}
       in={props.popupVisible}
       timeout={500}
       mountOnEnter
@@ -20,6 +22,7 @@ export default function Popup(props: {
       onExited={() => setInnerAnim(false)}
     >
       <div
+        ref={outerRef}
         className="overlay"
         onClick={() => {
           setInnerAnim(false);
@@ -27,13 +30,14 @@ export default function Popup(props: {
         }}
       >
         <CSSTransition
+          innerRef={outerRef}
           in={innerAnim}
           timeout={400}
           mountOnEnter
           unmountOnExit
           classNames="inner-animation"
         >
-          <div className="popup" onClick={(e) => e.stopPropagation()}>
+          <div className="popup" onClick={(e) => e.stopPropagation()} ref={innerRef}>
             {props.children}
           </div>
         </CSSTransition>
