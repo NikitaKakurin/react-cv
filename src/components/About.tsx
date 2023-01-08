@@ -8,7 +8,7 @@ export default function About() {
     <div className="w-[50%] border-x-[1px] border-black px-[1px] shadow-leftPage">
       <div className="flex items-center sm:flex-col md:flex-row md:justify-evenly md:p-2 lg:p-3 2xl:mx-auto 2xl:w-[600px]">
         <div className="w-[40%] border-2 border-black/20 p-1">
-          <div className="rotate-1 rounded-lg bg-slate-100 p-3">
+          <div className="rotate-1 rounded-lg bg-slate-100 p-[8%]">
             <img src={myFoto} alt="my foto" className="object-contain" />
           </div>
         </div>
