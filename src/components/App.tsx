@@ -32,7 +32,7 @@ function App() {
     };
   }, []);
   return (
-    <div className="flex max-w-full items-center justify-center bg-[#EBD5B3] md:h-screen md:overflow-hidden md:px-[5%]">
+    <div className="flex max-w-full items-center justify-center bg-[#EBD5B3] md:h-screen md:overflow-hidden md:bg-[#ad936c] md:px-[5%]">
       <div className="w-full">
         <Header />
 
