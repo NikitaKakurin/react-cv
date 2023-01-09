@@ -30,7 +30,7 @@ export default function Popup(props: {
         }}
       >
         <CSSTransition
-          nodeRef={outerRef}
+          nodeRef={innerRef}
           in={innerAnim}
           timeout={400}
           mountOnEnter

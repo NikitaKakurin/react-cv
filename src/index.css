@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Ruslan+Display&display=swap');
+
+.burger-link{
+  @apply flex w-full items-center justify-center border-y-2 border-transparent py-2 transition-all duration-100 hover:border-black/20 no-underline text-lg text-black
+}

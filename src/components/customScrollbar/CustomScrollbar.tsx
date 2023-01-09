@@ -3,8 +3,9 @@ import './scrollbar.scss';
 interface IProps {
   children: JSX.Element;
   side?: 'left' | 'right';
+  isShow?: boolean;
 }
-const Scrollbar = ({ children, side = 'right' }: IProps) => {
+const CustomScrollbar = ({ children, side = 'right', isShow = true }: IProps) => {
   const contentWrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const scrollTrackRef = useRef<HTMLDivElement>(null);
@@ -102,6 +103,7 @@ const Scrollbar = ({ children, side = 'right' }: IProps) => {
 
   // If the content and the scrollbar track exist, use a ResizeObserver to adjust height of thumb and listen for scroll event to move the thumb
   useEffect(() => {
+    if (!isShow) return;
     if (contentRef.current && scrollTrackRef.current && contentWrapperRef.current) {
       const ref = contentRef.current;
       const wrapperRef = contentWrapperRef.current;
@@ -123,6 +125,7 @@ const Scrollbar = ({ children, side = 'right' }: IProps) => {
   }, []);
 
   useEffect(() => {
+    if (!isShow) return;
     document.addEventListener('mousemove', handleThumbMousemove);
     document.addEventListener('mouseup', handleThumbMouseup);
     document.addEventListener('mouseleave', handleThumbMouseup);
@@ -132,6 +135,10 @@ const Scrollbar = ({ children, side = 'right' }: IProps) => {
       document.removeEventListener('mouseleave', handleThumbMouseup);
     };
   }, [handleThumbMousemove, handleThumbMouseup]);
+
+  if (!isShow) {
+    return <>{children}</>;
+  }
   return (
     <div className="relative flex h-full overflow-hidden rounded-xl border-[1px] border-slate-900/50">
       <div
@@ -165,4 +172,4 @@ const Scrollbar = ({ children, side = 'right' }: IProps) => {
   );
 };
 
-export default Scrollbar;
+export default CustomScrollbar;

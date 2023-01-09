@@ -1,9 +1,9 @@
 import Bookmark, { BookmarkColors } from './Bookmark/Bookmark';
-
+import Hamburger from './Hamburger/Hamburger';
 export default function Header() {
   return (
     <header className="w-full">
-      <div className="flex justify-end gap-x-2 pr-20">
+      <nav className="hidden justify-end gap-x-2 md:flex md:pr-20">
         <Bookmark color={BookmarkColors.BLUE} page={0}>
           <span>About me</span>
         </Bookmark>
@@ -16,7 +16,10 @@ export default function Header() {
         <Bookmark color={BookmarkColors.ORANGE} page={1}>
           <span>Portfolio</span>
         </Bookmark>
-      </div>
+      </nav>
+      <nav className="md:hidden">
+        <Hamburger />
+      </nav>
     </header>
   );
 }

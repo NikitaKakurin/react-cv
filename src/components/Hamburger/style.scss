@@ -1,0 +1,26 @@
+.background{
+  background: rgba(14, 13, 13, 0.2);
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 30;
+}
+.background-animation-enter {
+  opacity: 0;
+}
+
+.background-animation-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.background-animation-exit {
+  opacity: 1;
+}
+
+.background-animation-exit-active {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}

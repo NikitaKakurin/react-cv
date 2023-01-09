@@ -5,18 +5,19 @@ import { AiOutlineHome, AiOutlineMail, AiFillGithub } from 'react-icons/ai';
 
 export default function About() {
   return (
-    <div className="w-[50%] border-x-[1px] border-black px-[1px] shadow-leftPage">
-      <div className="flex items-center sm:flex-col md:flex-row md:justify-evenly md:p-2 lg:p-3 2xl:mx-auto 2xl:w-[600px]">
-        <div className="w-[40%] border-2 border-black/20 p-1">
+    <div
+      id="About"
+      className="h-full border-black px-[1px] md:w-[50%] md:border-x-[1px] md:shadow-leftPage"
+    >
+      <div className="flex flex-col items-center md:flex-row md:justify-evenly md:p-2 lg:p-3 2xl:mx-auto 2xl:w-[600px]">
+        <div className="mt-2 w-[250px] border-2 border-black/20 p-1 md:mt-0 md:w-[40%]">
           <div className="rotate-1 rounded-lg bg-slate-100 p-[8%]">
             <img src={myFoto} alt="my foto" className="object-contain" />
           </div>
         </div>
         <div className="w-[60%]">
-          <h2 className="text-center font-medium xs:text-xl sm:my-0 lg:text-2xl">Какурин Никита</h2>
-          <h3 className="text-center font-medium xs:text-lg sm:my-0 lg:text-xl">
-            frontend developer
-          </h3>
+          <h2 className="text-center text-xl font-medium lg:text-2xl">Какурин Никита</h2>
+          <h3 className="text-center text-lg font-medium lg:text-xl">frontend developer</h3>
           <div className="text-center font-medium xs:text-base lg:text-lg">1987 г.р.</div>
           <div className="text-center font-medium xs:text-base lg:text-lg">женат</div>
         </div>
