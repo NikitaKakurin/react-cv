@@ -6,13 +6,11 @@ import { useAppSelector } from 'app/hooks';
 export default function Education() {
   const isDesktop = useAppSelector(selectDeviceFormat);
   return (
-    <div
-      id="Education"
-      className="w-full border-black px-[1px] md:w-[50%] md:border-x-[1px] md:shadow-leftPage"
-    >
-      <div className="p-4">
-        <h2 className="text-center font-marck text-4xl">Образование:</h2>
-        <CustomScrollbar isShow={isDesktop} side="left">
+    <div id="Education" className="w-full px-[1px] md:w-[50%] md:shadow-leftPage">
+      <CustomScrollbar isShow={isDesktop} side="left">
+        <div className="p-4">
+          <h2 className="text-center font-marck text-4xl">Образование:</h2>
+
           <div>
             <h4 className="text-base font-medium">Высшее:</h4>
             <p className="pl-4 text-justify">
@@ -81,8 +79,8 @@ export default function Education() {
               </a>
             </p>
           </div>
-        </CustomScrollbar>
-      </div>
+        </div>
+      </CustomScrollbar>
     </div>
   );
 }

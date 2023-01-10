@@ -140,9 +140,9 @@ const CustomScrollbar = ({ children, side = 'right', isShow = true }: IProps) =>
     return <>{children}</>;
   }
   return (
-    <div className="relative flex h-full overflow-hidden rounded-xl border-[1px] border-slate-900/50">
+    <div className="relative flex h-full overflow-hidden rounded-xl">
       <div
-        className={`custom-scrollbars__content h-[70vh] flex-auto overflow-auto px-3 ${scrollbarOrder} `}
+        className={`custom-scrollbars__content flex-auto overflow-auto px-3 ${scrollbarOrder} h-full`}
         ref={contentRef}
       >
         <div ref={contentWrapperRef}>{children}</div>

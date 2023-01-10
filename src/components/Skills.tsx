@@ -20,25 +20,20 @@ export default function Skills() {
   }, []);
 
   return (
-    <div
-      id="Skills"
-      className="w-full border-black px-[1px] md:w-[50%] md:border-x-[1px] md:shadow-rightPage"
-    >
-      <div className="p-4">
-        <h2 className="text-center font-marck text-4xl">Навыки:</h2>
-        <CustomScrollbar isShow={isDesktop}>
-          <>
-            <div className="flex flex-wrap items-center justify-evenly gap-2 pb-2 pt-4">
-              {skillsData.map(([skill, stars], index) => (
-                <SkillsItem stars={stars} key={index} isShow={index === indexShowTooltip}>
-                  {skill}
-                </SkillsItem>
-              ))}
-            </div>
-            <div className="pt-3 text-center font-marck text-xl">to be continued...</div>
-          </>
-        </CustomScrollbar>
-      </div>
+    <div id="Skills" className="w-full px-[1px] md:w-[50%] md:shadow-rightPage">
+      <CustomScrollbar isShow={isDesktop}>
+        <div className="p-4">
+          <h2 className="text-center font-marck text-4xl">Навыки:</h2>
+          <div className="flex flex-wrap items-center justify-evenly gap-2 pb-2 pt-4">
+            {skillsData.map(([skill, stars], index) => (
+              <SkillsItem stars={stars} key={index} isShow={index === indexShowTooltip}>
+                {skill}
+              </SkillsItem>
+            ))}
+          </div>
+          <div className="pt-3 text-center font-marck text-xl">to be continued...</div>
+        </div>
+      </CustomScrollbar>
     </div>
   );
 }

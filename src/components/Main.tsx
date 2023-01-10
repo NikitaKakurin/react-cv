@@ -18,7 +18,7 @@ export default function Main() {
         disableSwipe={true}
         onSwipeEnd={setPage}
         selected={page}
-        animationDuration={700}
+        animationDuration={500}
       >
         <div className="flex h-full w-full bg-[#EBD5B3]">
           <About />
