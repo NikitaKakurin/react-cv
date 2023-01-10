@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import myFoto from 'assets/img/me.jpg';
 import { BsTelephone, BsTelegram } from 'react-icons/bs';
 import { AiOutlineHome, AiOutlineMail, AiFillGithub } from 'react-icons/ai';
@@ -73,6 +72,18 @@ export default function About() {
                       className="duration-700 group-hover:rotate-[720deg] group-hover:text-blue-500"
                     />
                     <span>NikitaKakurin;</span>
+                  </a>
+                </li>
+                <li className="group xs:pl-2 xl:pl-0">
+                  <a
+                    className="group flex items-center gap-x-2 text-black no-underline"
+                    href="https://t.me/NikitaKFromVRN"
+                  >
+                    <BsTelegram
+                      size={18}
+                      className="duration-700 group-hover:rotate-[720deg] group-hover:text-blue-500"
+                    />
+                    <span>@NikitaKFromVRN</span>
                   </a>
                 </li>
               </ul>
