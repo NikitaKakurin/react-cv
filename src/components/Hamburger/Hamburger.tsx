@@ -1,6 +1,8 @@
+import LangSwitcher from 'components/langSwitcher/LangSwitcher';
 import React, { useState, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './style.scss';
+
 export default function Hamburger() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen((isOpen) => !isOpen);
@@ -63,6 +65,11 @@ export default function Hamburger() {
             <a className="burger-link" href="#Portfolio">
               Portfolio
             </a>
+          </li>
+          <li>
+            <span className="burger-link">
+              <LangSwitcher isTextLight={false} />
+            </span>
           </li>
         </ul>
       </nav>

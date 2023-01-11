@@ -18,7 +18,9 @@ export default function Header() {
         <Bookmark color={BookmarkColors.ORANGE} page={1}>
           <span>Portfolio</span>
         </Bookmark>
-        <LangSwitcher />
+        <div className="bookmark-clip bg-green-500 px-2">
+          <LangSwitcher />
+        </div>
       </nav>
       <nav className="md:hidden">
         <Hamburger />

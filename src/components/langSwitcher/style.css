@@ -3,10 +3,7 @@
   align-items: center;
   position: relative;
   gap: 5px;
-  z-index: 1000;
-  background-color: rgb(34 197 94);
-  clip-path: polygon(10% 10%, 90% 0, 100% 100%, 0% 100%);
-  padding: 0 8px;
+  z-index: 10;
 }
 
 .lang__label {
@@ -21,7 +18,7 @@
   width: 20px;
   height: 20px;
   border-radius: 10px;
-  z-index: 1001;
+  z-index: 11;
   opacity: 0;
   cursor: pointer;
 }
@@ -38,17 +35,16 @@
 .lang__text-ru {
   display: inline-block;
   height: 20px;
-  line-height: 20px;
-  color: rgb(237, 240, 243);
+  line-height: 20px;  
   cursor: pointer;
-  transition: text-shadow 0.5s;
+  color: inherit;
 }
 
-.lang__text-en:hover,
-.lang__text-ru:hover {
-  text-shadow: 0 0 2px #FFF,
-    0 0 3px #FFF,
-    0 0 4px #FFF,
+.lang__text-light{
+  color: rgb(237, 240, 243);
+}
+.lang__text-dark {
+  color: rgb(19, 18, 18);
 }
 
 .switcher-toggle {

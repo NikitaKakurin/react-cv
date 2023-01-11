@@ -4,7 +4,10 @@ import { MdLanguage } from 'react-icons/md';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { selectLang } from 'app/slices/langSlice';
 import { setLang } from 'app/actionsCreators/langActionsCreators';
-export default function LangSwitcher() {
+interface IProps {
+  isTextLight?: boolean;
+}
+export default function LangSwitcher({ isTextLight = true }: IProps) {
   const dispatch = useAppDispatch();
   const selectedLang = useAppSelector(selectLang);
 
@@ -13,7 +16,10 @@ export default function LangSwitcher() {
   };
   return (
     <div className="lang-switcher">
-      <label className="lang__label" htmlFor="lang-en">
+      <label
+        className={`lang__label ${isTextLight ? 'lang__text-light' : 'lang__text-dark'}`}
+        htmlFor="lang-en"
+      >
         <span className="lang__text-en">EN</span>
       </label>
       <div className="switcher-toggle">
@@ -39,7 +45,10 @@ export default function LangSwitcher() {
           <MdLanguage size={20} />
         </div>
       </div>
-      <label className="lang__label" htmlFor="lang-ru">
+      <label
+        className={`lang__label ${isTextLight ? 'lang__text-light' : 'lang__text-dark'}`}
+        htmlFor="lang-ru"
+      >
         <span className="lang__text-ru">RU</span>
       </label>
     </div>
