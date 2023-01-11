@@ -4,9 +4,11 @@ import { AiOutlineHome, AiOutlineMail, AiFillGithub } from 'react-icons/ai';
 import CustomScrollbar from './customScrollbar/CustomScrollbar';
 import { useAppSelector } from 'app/hooks';
 import { selectDeviceFormat } from 'app/slices/deviceFormatSlice';
+import { selectLang } from 'app/slices/langSlice';
 
 export default function About() {
   const isDesktop = useAppSelector(selectDeviceFormat);
+  const lang = useAppSelector(selectLang);
   return (
     <div
       id="About"

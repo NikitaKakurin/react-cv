@@ -1,5 +1,7 @@
 import Bookmark, { BookmarkColors } from './Bookmark/Bookmark';
 import Hamburger from './Hamburger/Hamburger';
+import LangSwitcher from './langSwitcher/LangSwitcher';
+
 export default function Header() {
   return (
     <header className="w-full">
@@ -16,6 +18,7 @@ export default function Header() {
         <Bookmark color={BookmarkColors.ORANGE} page={1}>
           <span>Portfolio</span>
         </Bookmark>
+        <LangSwitcher />
       </nav>
       <nav className="md:hidden">
         <Hamburger />
