@@ -32,8 +32,8 @@ function App() {
     };
   }, []);
   return (
-    <div className="flex max-w-full items-center justify-center bg-[#EBD5B3] md:h-screen md:overflow-hidden md:bg-[#ad936c] md:px-[5%]">
-      <div className="h-full w-full">
+    <div className="flex w-full items-center justify-center bg-[#EBD5B3] md:h-screen md:overflow-hidden md:bg-[#ad936c] md:px-[5%]">
+      <div className="h-full max-h-[1000px] w-full max-w-[1200px]">
         <Header />
 
         {isDesktop ? (
