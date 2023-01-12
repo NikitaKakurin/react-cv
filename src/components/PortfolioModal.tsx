@@ -26,6 +26,8 @@ export default function PortfolioModal() {
         <a
           href={portfolioWorks[indexWork].deploySrc}
           className="underline-none text-lg text-black "
+          target="_blank"
+          rel="noreferrer"
         >
           <span className="hover:text-blue-500">deploy</span>
         </a>

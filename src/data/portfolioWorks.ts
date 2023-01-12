@@ -4,7 +4,16 @@ import prevCV from 'assets/img/prevCV.png';
 import virtualKeyboard from 'assets/img/keyboard.png';
 import g2048 from 'assets/img/2048.png';
 import taskManager from 'assets/img/taskManager.png';
+import reactCV from 'assets/img/react-cv.png';
 export const portfolioWorks = [
+  {
+    imageSrc: reactCV,
+    name: 'This CV',
+    deploySrc: 'https://nikitakakurin-react-cv.netlify.app/',
+    githubSrc: 'https://github.com/NikitaKakurin/react-cv',
+    skills: 'React, TS, Tailwind, Redux',
+    device: 'Desktop, mobile',
+  },
   {
     imageSrc: taskManager,
     name: 'Task manager',
