@@ -41,12 +41,12 @@ function App() {
             <Main />
           </Cover>
         ) : (
-          <div className="h-full w-full bg-[#EBD5B3] md:hidden">
+          <main className="h-full w-full bg-[#EBD5B3] md:hidden">
             <About />
             <Skills />
             <Education />
             <Portfolio />
-          </div>
+          </main>
         )}
 
         <Popup popupVisible={popupVisible} setPopupVisible={() => dispatch(hidePortfolioPopup())}>

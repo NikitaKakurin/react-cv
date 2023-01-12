@@ -31,7 +31,7 @@ export default function Bookmark({ children, color, page }: IProps) {
     green: 'bg-green-500 text-white hover:bg-green-600',
     red: 'bg-red-500 text-white hover:bg-red-600',
     orange: 'bg-orange-500 text-white hover:bg-orange-600',
-    disabled: 'bg-gray-300 text-gray-400 cursor-not-allowed',
+    disabled: 'bg-gray-400 text-gray-500 cursor-not-allowed',
   };
   const colorStyle = currentPage === page ? colors.disabled : colors[color];
   return (

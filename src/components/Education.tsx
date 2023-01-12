@@ -8,7 +8,7 @@ export default function Education() {
   const isDesktop = useAppSelector(selectDeviceFormat);
   const lang = useAppSelector(selectLang);
   return (
-    <div id="Education" className="w-full px-[1px] md:w-[50%] md:shadow-leftPage">
+    <section id="Education" className="w-full px-[1px] md:w-[50%] md:shadow-leftPage">
       <CustomScrollbar isShow={isDesktop} side="left">
         <div className="p-4">
           <h2 className="text-center font-marck text-4xl">{i18n[lang].education}:</h2>
@@ -90,6 +90,6 @@ export default function Education() {
           </div>
         </div>
       </CustomScrollbar>
-    </div>
+    </section>
   );
 }

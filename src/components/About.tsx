@@ -10,7 +10,7 @@ export default function About() {
   const isDesktop = useAppSelector(selectDeviceFormat);
   const lang = useAppSelector(selectLang);
   return (
-    <div
+    <section
       id="About"
       className="h-full border-black px-[1px] md:w-[50%] md:border-x-[1px] md:shadow-leftPage"
     >
@@ -114,6 +114,6 @@ export default function About() {
           </div>
         </>
       </CustomScrollbar>
-    </div>
+    </section>
   );
 }

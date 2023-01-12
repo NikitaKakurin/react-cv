@@ -6,7 +6,7 @@ import Slider from './slider/Slider';
 export default function Portfolio() {
   const lang = useAppSelector(selectLang);
   return (
-    <div
+    <section
       id="Portfolio"
       className="w-full border-black px-[1px] md:w-[50%] md:border-x-[1px] md:shadow-rightPage"
     >
@@ -21,6 +21,6 @@ export default function Portfolio() {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -12,7 +12,7 @@ export default function Main() {
   const page = useAppSelector(selectPage);
 
   return (
-    <div className="h-full w-full">
+    <main className="h-full w-full">
       <FlippingPages
         direction="right-to-left"
         disableSwipe={true}
@@ -29,6 +29,6 @@ export default function Main() {
           <Portfolio />
         </div>
       </FlippingPages>
-    </div>
+    </main>
   );
 }

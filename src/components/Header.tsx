@@ -22,7 +22,7 @@ export default function Header() {
         <Bookmark color={BookmarkColors.ORANGE} page={1}>
           <span>{i18n[lang].portfolio}</span>
         </Bookmark>
-        <div className="bookmark-clip bg-green-500 px-2">
+        <div className="bookmark-clip bg-green-600 px-2">
           <LangSwitcher />
         </div>
       </nav>

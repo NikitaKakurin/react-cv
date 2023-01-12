@@ -24,7 +24,7 @@ export default function Skills() {
   }, []);
 
   return (
-    <div id="Skills" className="w-full px-[1px] md:w-[50%] md:shadow-rightPage">
+    <section id="Skills" className="w-full px-[1px] md:w-[50%] md:shadow-rightPage">
       <CustomScrollbar isShow={isDesktop}>
         <div className="p-4">
           <h2 className="text-center font-marck text-4xl">{i18n[lang].skills}:</h2>
@@ -38,6 +38,6 @@ export default function Skills() {
           <div className="pt-3 text-center font-marck text-xl">to be continued...</div>
         </div>
       </CustomScrollbar>
-    </div>
+    </section>
   );
 }
