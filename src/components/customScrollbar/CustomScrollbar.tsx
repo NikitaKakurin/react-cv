@@ -18,12 +18,15 @@ const CustomScrollbar = ({ children, side = 'right', isShow = true }: IProps) =>
   const scrollbarOrder = side === 'left' ? 'order-2' : '';
   const [isShowScrollbar, setIsShowScrollbar] = useState(true);
 
-  function handleResize(ref: HTMLDivElement, wrapperRef: HTMLDivElement, trackSize: number) {
-    const { clientHeight, scrollHeight } = ref;
+  function handleResize() {
+    if (!contentRef.current || !scrollTrackRef.current || !contentWrapperRef.current) {
+      return;
+    }
+    const { clientHeight, scrollHeight } = contentRef.current;
+    const { clientHeight: trackSize } = scrollTrackRef.current;
+    const { clientHeight: wrapperHeight } = contentWrapperRef.current;
     setThumbHeight(Math.max((clientHeight / scrollHeight) * trackSize, 20));
-    const { clientHeight: contentHeight } = ref;
-    const { clientHeight: wrapperHeight } = wrapperRef;
-    setIsShowScrollbar(contentHeight < wrapperHeight);
+    setIsShowScrollbar(clientHeight < wrapperHeight);
   }
 
   const handleTrackClick = useCallback(
@@ -112,7 +115,7 @@ const CustomScrollbar = ({ children, side = 'right', isShow = true }: IProps) =>
       const { clientHeight: wrapperHeight } = wrapperRef;
       setIsShowScrollbar(contentHeight < wrapperHeight);
       observer.current = new ResizeObserver(() => {
-        handleResize(ref, wrapperRef, trackSize);
+        handleResize();
       });
       observer.current.observe(ref);
       ref.addEventListener('scroll', handleThumbPosition);
