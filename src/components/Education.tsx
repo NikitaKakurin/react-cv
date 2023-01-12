@@ -15,10 +15,7 @@ export default function Education() {
 
           <div>
             <h4 className="text-base font-medium">Высшее:</h4>
-            <p className="pl-4 text-justify">
-              2004-2009: Украина, Алчевск, Доннбасский Государственный Технический Университет -
-              Инженер электронной техники.
-            </p>
+            <p className="pl-4 text-justify">2004-2009: {i18n[lang].univer}</p>
             <h4 className="text-base font-medium">Курсы:</h4>
             <p className="pl-4 text-justify">
               2021:

@@ -14,6 +14,7 @@ export const en = {
   skills: 'Skills',
   portfolio: 'Portfolio',
   education: 'Education',
-  certificate: 'сертификат',
+  certificate: 'certificate',
   univer: 'Ukraine, Alchevsk, Donnbass State Technical University - Electronics engineer.',
+  owner: 'Kakurin N.V.',
 };

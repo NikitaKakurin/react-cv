@@ -75,5 +75,5 @@
 }
 
 .lang__radio-en:checked~.switcher-handle {
-  left: 0;
+  left: 20px;
 }

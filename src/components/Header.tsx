@@ -9,7 +9,7 @@ export default function Header() {
   const lang = useAppSelector(selectLang);
   return (
     <header className="w-full">
-      <nav className="hidden justify-end gap-x-2 md:flex md:pr-20">
+      <nav className="hidden justify-end gap-x-2 md:flex md:pr-5">
         <Bookmark color={BookmarkColors.BLUE} page={0}>
           <span>{i18n[lang].about}</span>
         </Bookmark>

@@ -11,48 +11,55 @@ interface IProps {
 }
 export default function LangSwitcher({ isTextLight = true }: IProps) {
   const dispatch = useAppDispatch();
-  const selectedLang = useAppSelector(selectLang);
+  const lang = useAppSelector(selectLang);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value as langType;
-    dispatch(setLang(value));
+    if (e.target.checked) {
+      const value = e.target.value as langType;
+      dispatch(setLang(value));
+      return;
+    }
   };
   return (
-    <div className="lang-switcher">
+    <div className="relative z-10 flex items-center gap-[5px]">
       <label
-        className={`lang__label ${isTextLight ? 'lang__text-light' : 'lang__text-dark'}`}
+        className={`cursor-pointer text-center ${isTextLight ? 'text-gray-200' : 'text-gray-900'}`}
         htmlFor="lang-en"
       >
-        <span className="lang__text-en">EN</span>
+        <span className="inline-block h-5 cursor-pointer leading-5 text-inherit">EN</span>
       </label>
-      <div className="switcher-toggle">
+      <div className="relative z-30 h-5 w-10 cursor-pointer rounded-full bg-orange-200">
         <input
-          className="lang__radio-en"
+          className="absolute top-0 right-5 z-20 h-5 w-5 cursor-pointer rounded-full opacity-0"
           type="radio"
           name="lang"
           id="lang-en"
           value="en"
-          checked={'en' === selectedLang}
+          checked={'en' === lang}
           onChange={handleChange}
         />
         <input
-          className="lang__radio-ru"
+          className="absolute top-0 left-5 z-20 h-5 w-5 cursor-pointer rounded-full opacity-0"
           type="radio"
           name="lang"
           id="lang-ru"
           value="ru"
-          defaultChecked={'ru' === selectedLang}
+          checked={'ru' === lang}
           onChange={handleChange}
         />
-        <div className="switcher-handle">
+        <div
+          className={`absolute top-0 flex h-5 w-5 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-red-200 transition-[left_0.4s_easy] ${
+            lang === 'en' ? 'left-[0px]' : 'left-5'
+          }`}
+        >
           <MdLanguage size={20} />
         </div>
       </div>
       <label
-        className={`lang__label ${isTextLight ? 'lang__text-light' : 'lang__text-dark'}`}
+        className={`cursor-pointer text-center ${isTextLight ? 'text-gray-200' : 'text-gray-900'}`}
         htmlFor="lang-ru"
       >
-        <span className="lang__text-ru">RU</span>
+        <span className="inline-block h-5 cursor-pointer leading-5 text-inherit">RU</span>
       </label>
     </div>
   );

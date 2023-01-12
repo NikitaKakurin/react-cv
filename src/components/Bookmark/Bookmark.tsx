@@ -36,7 +36,7 @@ export default function Bookmark({ children, color, page }: IProps) {
   const colorStyle = currentPage === page ? colors.disabled : colors[color];
   return (
     <div
-      className={`cursor-pointer text-center ${colorStyle} bookmark-clip min-w-[100px]`}
+      className={`cursor-pointer text-center ${colorStyle} bookmark-clip min-w-[100px] px-2`}
       onClick={() => dispatch(setPage(page))}
     >
       {children}
