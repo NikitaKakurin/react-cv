@@ -107,7 +107,7 @@ export default function About() {
             <p className="text-justify indent-6">{i18n[lang].aboutText}</p>
           </div>
           <div className="flex flex-col items-center justify-center py-2">
-            <a href="./assets/doc/NikitaKakurin.pdf" download>
+            <a href="./assets/doc/KakurinNikita.pdf" download>
               {i18n[lang].print}
             </a>
             <a href="https://voronezh.hh.ru/resume/f6d4fa8bff0949282a0039ed1f74443166524c">hh.ru</a>

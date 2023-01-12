@@ -9,7 +9,7 @@ export const en = {
   ru: 'Russian (native)',
   about: 'About me ',
   aboutText:
-    'Hi. I have a higher education in the field of automation of production systems, but I want to become a front-end developer and I hope you can help me with this.',
+    'Good afternoon. I have a higher education in the field of automation of production systems, but I want to work as a front-end developer and am open to your offers.',
   print: 'print version',
   skills: 'Skills',
   portfolio: 'Portfolio',
