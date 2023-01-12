@@ -1,9 +1,13 @@
 import LangSwitcher from 'components/langSwitcher/LangSwitcher';
 import React, { useState, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { useAppSelector } from 'app/hooks';
+import { selectLang } from 'app/slices/langSlice';
+import i18n from 'i18n';
 import './style.scss';
 
 export default function Hamburger() {
+  const lang = useAppSelector(selectLang);
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen((isOpen) => !isOpen);
   const backgroundRef = useRef(null);
@@ -48,22 +52,22 @@ export default function Hamburger() {
         <ul className="m-0 flex w-full list-none flex-col px-0 py-10 ">
           <li>
             <a className="burger-link" href="#About">
-              About
+              {i18n[lang].about}
             </a>
           </li>
           <li>
             <a className="burger-link" href="#Skills">
-              Skills
+              {i18n[lang].skills}
             </a>
           </li>
           <li>
             <a className="burger-link" href="#Education">
-              Education
+              {i18n[lang].education}
             </a>
           </li>
           <li>
             <a className="burger-link" href="#Portfolio">
-              Portfolio
+              {i18n[lang].portfolio}
             </a>
           </li>
           <li>

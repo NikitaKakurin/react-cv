@@ -5,7 +5,7 @@ import CustomScrollbar from './customScrollbar/CustomScrollbar';
 import { useAppSelector } from 'app/hooks';
 import { selectDeviceFormat } from 'app/slices/deviceFormatSlice';
 import { selectLang } from 'app/slices/langSlice';
-
+import i18n from 'i18n';
 export default function About() {
   const isDesktop = useAppSelector(selectDeviceFormat);
   const lang = useAppSelector(selectLang);
@@ -23,20 +23,24 @@ export default function About() {
               </div>
             </div>
             <div className="w-[60%]">
-              <h2 className="text-center text-xl font-medium lg:text-2xl">Какурин Никита</h2>
+              <h2 className="text-center text-xl font-medium lg:text-2xl">{i18n[lang].FIO}</h2>
               <h3 className="text-center text-lg font-medium lg:text-xl">frontend developer</h3>
-              <div className="text-center font-medium xs:text-base lg:text-lg">1987 г.р.</div>
-              <div className="text-center font-medium xs:text-base lg:text-lg">женат</div>
+              <div className="text-center font-medium xs:text-base lg:text-lg">
+                {i18n[lang].year}
+              </div>
+              <div className="text-center font-medium xs:text-base lg:text-lg">
+                {i18n[lang].status}
+              </div>
             </div>
           </div>
 
           <address className="px-4">
-            <h5 className="w-full text-lg">Контакты:</h5>
+            <h5 className="w-full text-lg">{i18n[lang].contacts}:</h5>
             <div className="xs:pl-4 xl:flex xl:flex-wrap xl:items-center xl:justify-center xl:gap-x-3">
               <ul className="m-0 px-2 xs:px-4">
                 <li className="flex items-center gap-x-2 xs:pl-2 xl:pl-0">
                   <AiOutlineHome size={18} />
-                  <span> Voronezh, Russia;</span>
+                  <span> {i18n[lang].place}</span>
                 </li>
                 <li className="group xs:pl-2 xl:pl-0">
                   <a
@@ -92,22 +96,19 @@ export default function About() {
             </div>
           </address>
           <div className="px-4">
-            <h5 className="w-full text-lg">Языки:</h5>
+            <h5 className="w-full text-lg">{i18n[lang].lang}:</h5>
             <ul className="p-x-4 m-0">
-              <li className="">English (pre-intermediate)</li>
-              <li className="">Russian (native)</li>
+              <li className="">{i18n[lang].en};</li>
+              <li className="">{i18n[lang].ru};</li>
             </ul>
           </div>
           <div className="px-4">
-            <h5 className="w-full text-lg ">Обо мне:</h5>
-            <p className="text-justify indent-6">
-              Добрый день. У меня высшее образование в области автоматизации производственных
-              систем, но я хочу стать фронтенд-разработчиком и я надеюсь вы поможете мне в этом.
-            </p>
+            <h5 className="w-full text-lg ">{i18n[lang].about}:</h5>
+            <p className="text-justify indent-6">{i18n[lang].aboutText}</p>
           </div>
           <div className="flex flex-col items-center justify-center py-2">
             <a href="./assets/doc/NikitaKakurin.pdf" download>
-              версия для печати
+              {i18n[lang].print}
             </a>
             <a href="https://voronezh.hh.ru/resume/f6d4fa8bff0949282a0039ed1f74443166524c">hh.ru</a>
           </div>

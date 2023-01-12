@@ -4,6 +4,8 @@ import { MdLanguage } from 'react-icons/md';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { selectLang } from 'app/slices/langSlice';
 import { setLang } from 'app/actionsCreators/langActionsCreators';
+import type { langType } from 'i18n';
+
 interface IProps {
   isTextLight?: boolean;
 }
@@ -12,7 +14,8 @@ export default function LangSwitcher({ isTextLight = true }: IProps) {
   const selectedLang = useAppSelector(selectLang);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setLang(e.target.value));
+    const value = e.target.value as langType;
+    dispatch(setLang(value));
   };
   return (
     <div className="lang-switcher">
