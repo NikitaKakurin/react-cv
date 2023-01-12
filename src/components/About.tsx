@@ -98,7 +98,20 @@ export default function About() {
           <div className="px-4">
             <h5 className="w-full text-lg">{i18n[lang].lang}:</h5>
             <ul className="p-x-4 m-0">
-              <li className="">{i18n[lang].en};</li>
+              <li className="">
+                {i18n[lang].en}
+                <a
+                  href="https://www.efset.org/cert/MvqjCm"
+                  className="no-underline"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="text-blue-800 hover:text-blue-600">
+                    ({i18n[lang].certificate})
+                  </span>
+                </a>
+                ;
+              </li>
               <li className="">{i18n[lang].ru};</li>
             </ul>
           </div>
