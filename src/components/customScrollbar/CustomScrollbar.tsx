@@ -19,14 +19,13 @@ const CustomScrollbar = ({ children, side = 'right', isShow = true }: IProps) =>
   const [isShowScrollbar, setIsShowScrollbar] = useState(true);
 
   function handleResize() {
-    if (!contentRef.current || !scrollTrackRef.current || !contentWrapperRef.current) {
-      return;
-    }
+    if (!contentRef.current || !contentWrapperRef.current) return;
     const { clientHeight, scrollHeight } = contentRef.current;
-    const { clientHeight: trackSize } = scrollTrackRef.current;
     const { clientHeight: wrapperHeight } = contentWrapperRef.current;
-    setThumbHeight(Math.max((clientHeight / scrollHeight) * trackSize, 20));
     setIsShowScrollbar(clientHeight < wrapperHeight);
+    if (!scrollTrackRef.current) return;
+    const { clientHeight: trackSize } = scrollTrackRef.current;
+    setThumbHeight(Math.max((clientHeight / scrollHeight) * trackSize, 20));
   }
 
   const handleTrackClick = useCallback(
@@ -107,17 +106,14 @@ const CustomScrollbar = ({ children, side = 'right', isShow = true }: IProps) =>
   // If the content and the scrollbar track exist, use a ResizeObserver to adjust height of thumb and listen for scroll event to move the thumb
   useEffect(() => {
     if (!isShow) return;
-    if (contentRef.current && scrollTrackRef.current && contentWrapperRef.current) {
+    if (contentRef.current && contentWrapperRef.current) {
       const ref = contentRef.current;
       const wrapperRef = contentWrapperRef.current;
-      const { clientHeight: trackSize } = scrollTrackRef.current;
-      const { clientHeight: contentHeight } = ref;
-      const { clientHeight: wrapperHeight } = wrapperRef;
-      setIsShowScrollbar(contentHeight < wrapperHeight);
       observer.current = new ResizeObserver(() => {
         handleResize();
       });
       observer.current.observe(ref);
+      observer.current.observe(wrapperRef);
       ref.addEventListener('scroll', handleThumbPosition);
 
       return () => {
@@ -125,19 +121,32 @@ const CustomScrollbar = ({ children, side = 'right', isShow = true }: IProps) =>
         ref.removeEventListener('scroll', handleThumbPosition);
       };
     }
-  }, []);
+  }, [isShow]);
+
+  useEffect(() => {
+    if (!isShow) return;
+    if (contentRef.current && contentWrapperRef.current) {
+      const ref = contentRef.current;
+      const wrapperRef = contentWrapperRef.current;
+      const { clientHeight: contentHeight } = ref;
+      const { clientHeight: wrapperHeight } = wrapperRef;
+      setIsShowScrollbar(contentHeight < wrapperHeight);
+    }
+  });
 
   useEffect(() => {
     if (!isShow) return;
     document.addEventListener('mousemove', handleThumbMousemove);
     document.addEventListener('mouseup', handleThumbMouseup);
     document.addEventListener('mouseleave', handleThumbMouseup);
+    window.addEventListener('resize', handleResize);
     return () => {
       document.removeEventListener('mousemove', handleThumbMousemove);
       document.removeEventListener('mouseup', handleThumbMouseup);
       document.removeEventListener('mouseleave', handleThumbMouseup);
+      window.removeEventListener('resize', handleResize);
     };
-  }, [handleThumbMousemove, handleThumbMouseup]);
+  }, [handleThumbMousemove, handleThumbMouseup, handleResize]);
 
   if (!isShow) {
     return <>{children}</>;
